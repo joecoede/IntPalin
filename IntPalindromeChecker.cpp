@@ -1,33 +1,26 @@
 #include <iostream>
 #include <cmath>
 using namespace std;
-//integer palindrome checker
+//better integer palindrome checker
+
+
+
 
 
 string isIntPalindrome(int input){
- string answer = "Congrats! Input is a palindrome!";
- int b;
- int a;
- int c = input;
- int intlength = 0;
+int rinput = 0;
+int x = input;
 
-    for(int x = input; x>0; intlength++){
+    while(x>0){
+        int addednumber = x%10;
+        rinput = rinput*10 + addednumber;
         x = x/10;
-    }
-
-    for(int i = intlength-1; i>-1; i--){
-        int z = trunc(input/pow(10,i));
-        b = z%10;
-        a = c%10;
-        if(a!=b){
-            answer = "Input is not an integer Palindrome.";
-            i = -1;
-        }
-        c = c/10;
-    } return answer;
+    } if(rinput==input){
+        return "Congrats you did it!";
+    }else{return "nah input is not a palindrome.";}
 }
 
 int main()
 {
-    cout<<isIntPalindrome(244);
+    cout<<isIntPalindrome(12321);
 }
